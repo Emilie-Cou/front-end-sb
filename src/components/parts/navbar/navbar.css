@@ -1,0 +1,27 @@
+nav {
+    border: solid 2px red;
+    /* position: fixed; */
+    /* display: flex; */
+    /* width: 100%; */
+    background-color: cadetblue;
+    margin: 0;
+    padding: 0.25rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: center;
+}
+
+nav ul li {
+    margin: auto;
+    padding: 0 5px;
+}
+
+li {
+    list-style-type: none;
+    text-decoration: none;
+}
