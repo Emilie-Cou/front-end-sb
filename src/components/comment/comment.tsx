@@ -1,18 +1,48 @@
+import { useEffect, useState } from "react";
+import { getAllComment } from "../../api/comment/getComment";
+
+
+interface CommentProps {
+    prenom: string,
+    content: string
+}
+     
+
 function Comment() {
     
+    const [ comments, setComments ] = useState<CommentProps[]>([])
+
+    const getAll = async () => {
+        try {
+            const allComments = await getAllComment()
+            setComments(allComments)
+        } 
+        catch (error) {
+            console.error(error)
+        }
+    } 
+
+    useEffect(() => {
+        getAll()
+        }, [])
+
     return (
         <>
             <h1>Les commentaires</h1>
-            {/* <ul class="comment">
-                <% allComment.forEach( cmt => { %>
-                    <li>
-                        <div>
-                            <h3><%= cmt.Prenom %></h3>
-                            <p><%= cmt.Content %></p>
+
+            {comments.length > 0 ? (
+                <div>
+                    {comments.map((cmt, index) => (
+                        <div key={index}>
+                            <h2>{cmt.prenom}</h2>
+                            <p>{cmt.content}</p>
                         </div>
-                    </li>
-                <% }) %>
-            </ul> */}
+                        ))
+                    }
+                </div>
+            ) : (
+                <p>Il n'y a pas de message...</p>
+            )}
         </>
     )
 }
