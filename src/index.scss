@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,9 +12,79 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+} */
+
+main {
+  display: flex;
+}
+
+body {
+  background-color: aliceblue;
+  text-align: center;
+  /* min-height: 800px; */
 }
 
 a {
+  list-style-type: none;
+  text-decoration: none;
+  color: burlywood;
+}
+
+a:visited {
+  list-style-type: none;
+  text-decoration: none;
+  color: burlywood;
+
+}
+
+a:hover {
+  list-style-type: none;
+  text-decoration: none;
+  color: pink;
+
+}
+
+a:active {
+  list-style-type: none;
+  text-decoration: none;
+  color: bisque;
+}
+
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: red;
+}
+
+p {
+  color: blueviolet;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+button {
+  background-color: pink;
+  color: crimson;
+  /* border: 5px, solid, crimson; */
+  border-radius: 25px;
+}
+
+img {
+  border-radius: 25px;
+}
+
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -66,4 +136,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

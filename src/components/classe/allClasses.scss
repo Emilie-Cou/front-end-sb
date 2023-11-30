@@ -1,0 +1,18 @@
+.afficheAll {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.afficheAll img {
+    max-height: 230px;
+}
+
+.afficheAllDiv {
+    border: 1px, solid, crimson;
+    border-radius: 25px;
+    background-color: pink;
+    color: crimson;
+    padding: 0.7rem;
+    margin: 1rem;
+}

@@ -15,7 +15,7 @@ const Form: FC<IPersForm> = forwardRef<HTMLInputElement, IPersForm>(({ type, cla
             <label>
                     {label}
             </label>
-
+            
             <input 
                 ref={ref} 
                 type={type}

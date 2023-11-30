@@ -34,7 +34,7 @@ function Comment() {
                 <div>
                     {comments.map((cmt, index) => (
                         <div key={index}>
-                            <h2>{cmt.prenom}</h2>
+                            <h3>{cmt.prenom}</h3>
                             <p>{cmt.content}</p>
                         </div>
                         ))

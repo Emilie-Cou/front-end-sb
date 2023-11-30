@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllClasse } from "../../api/classe/getClasse";
+import './allClasses.scss'
 
 
 interface ClasseProps {
@@ -37,15 +38,15 @@ function Classes() {
             {selectedClasse !== '' ? (
                 <p>Détailler la classe</p>
             ) : (
-                <ul>
+                <ul className="afficheAll">
                     {classes.map((cls, index) => (
                         <li key={index}>
-                            <div>
+                            <div className="afficheAllDiv">
                                 <h3>{cls.nom}</h3>
                                 <p>Professeur: a faire</p>
                                 <p>{cls.desc}</p>
                                 <h2>En voici une photo</h2>
-                                <img src='{cls.img}' alt="Ecole du bas" width="300" />
+                                <img src={cls.img} alt="Ecole du bas" width="300" />
                             </div>
                         </li>
                     ))}

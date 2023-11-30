@@ -9,7 +9,7 @@ export const getAllProf = () => {
         .then((response) => {
             const profs = response.data.map((prfs: any) => ({
                     id: prfs.idClasse,
-                    nom: prfs.nomClasse,
+                    nom: prfs.nom,
                     desc: prfs.miniDesc,
                     img: prfs.img,
             }));

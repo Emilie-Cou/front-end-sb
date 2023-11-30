@@ -1,4 +1,5 @@
 import schoolLogo from '../../assets/school.svg'
+import './home.scss'
 
 function Home() {
 
@@ -8,7 +9,7 @@ function Home() {
             <h1>Ecole</h1>
             <h2>Voici notre école</h2>
             <div>
-                <img src={schoolLogo} className="logo react" alt="React logo" />
+                <img src={schoolLogo} className="logo react" alt="React logo" width={300}/>
             </div>
             <p>Comme elle est splendiiiiide</p>
             <p>Et t'as pas vu l'autre partie....</p>
