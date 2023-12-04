@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllProf } from "../../api/prof/getProf";
+import { getAllProf } from "../../api/prof/APIProf";
 import './allProfs.scss'
 
 interface ProfProps {

@@ -4,9 +4,11 @@ interface IComForm {
     className: string
     label: string
     required: boolean
+    cols: number
+    rows: number
 }
 
-const ComForm: FC<IComForm> = forwardRef<HTMLInputElement, IComForm>(({ className, label, required}) => {
+const ComForm: FC<IComForm> = forwardRef<HTMLInputElement, IComForm>(({ className, label, required, cols, rows}) => {
 
 
     return (
@@ -18,6 +20,8 @@ const ComForm: FC<IComForm> = forwardRef<HTMLInputElement, IComForm>(({ classNam
             <textarea 
                 className={className}
                 required={required}
+                cols={cols}
+                rows={rows}
             />
         </>
     )

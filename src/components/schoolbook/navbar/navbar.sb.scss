@@ -1,0 +1,28 @@
+.navsb {
+    border: solid 2px red;
+    /* position: fixed; */
+    /* display: flex; */
+    /* width: 100%; */
+    background-color: cadetblue;
+    margin: auto;
+    padding: 0.25rem;
+    width: 600px;
+}
+
+.navsb ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.navsb ul li {
+    margin: auto;
+    padding: 0 5px;
+}
+
+li {
+    list-style-type: none;
+    text-decoration: none;
+}

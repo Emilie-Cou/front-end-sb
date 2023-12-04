@@ -41,6 +41,8 @@ function CommentForm() {
                             label="Ecris ton message: "
                             className="commentFormInput"
                             required={true}
+                            cols={50}
+                            rows={5}
                         />
                     )}
                 />

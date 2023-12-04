@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllComment } from "../../api/comment/getComment";
+import { getAllComment } from "../../api/comment/APIcomment";
 
 
 interface CommentProps {

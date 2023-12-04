@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllClasse } from "../../api/classe/getClasse";
+import { getAllClasse } from "../../api/classe/APIclasse";
 import './allClasses.scss'
 
 

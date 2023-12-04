@@ -29,6 +29,9 @@ function Navbar() {
               <li>
                 <Link to='/connect'>Connexion</Link>
               </li>
+              <li>
+                <Link to='/homesb'>HomeSB</Link>
+              </li>
             </ul>
         </nav>
       </>
