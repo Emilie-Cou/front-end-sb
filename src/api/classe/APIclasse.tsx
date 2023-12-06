@@ -1,19 +1,43 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3000/classe"
+const baseUrl = "http://localhost:3000/classe/"
 
 export const getAllClasse = () => {
     
     return axios.get(baseUrl)
     
         .then((response) => {
-            const classes = response.data.map((cls: any) => ({
-                    id: cls.idClasse,
-                    nom: cls.nomClasse,
-                    desc: cls.miniDesc,
-                    img: cls.img,
+            const classes = response.data.map((clss: any) => ({
+                    id: clss.idClasse,
+                    nom: clss.nomClasse,
+                    desc: clss.miniDesc,
+                    img: clss.img,
             }));
             return classes;
+        })
+
+        .catch(function (error) {
+            console.log(error);
+            throw error
+        })
+
+        .finally(function () {
+            console.log("It's okay, baby!");
+        })  
+}
+
+export const getOneClasse = (idClasse : string) => {
+
+    return axios.get(baseUrl + idClasse)
+
+        .then((response) => {
+            const classe = {
+                id : response.data.idClasse,
+                nom: response.data.nomClasse,
+                desc: response.data.desc,
+                img: response.data.img,
+            }
+            return classe;
         })
 
         .catch(function (error) {

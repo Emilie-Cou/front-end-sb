@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllClasse } from "../../api/classe/APIclasse";
 import './allClasses.scss'
-
+import OneClasse from "./oneClasse";
 
 interface ClasseProps {
     id: string,
@@ -33,14 +33,12 @@ function Classes() {
         <>
             <h1>Les classes</h1>
 
-            <button onClick={getAll}> Tous </button>
+            <button onClick={() => setSelectedClasse('')}> Tous </button>
 
-            {selectedClasse !== '' ? (
-                <p>Détailler la classe</p>
-            ) : (
+            {selectedClasse == '' ? (
                 <ul className="afficheAll">
                     {classes.map((cls, index) => (
-                        <li key={index}>
+                        <li key={index} onClick={() => setSelectedClasse(cls.id)}>
                             <div className="afficheAllDiv">
                                 <h3>{cls.nom}</h3>
                                 <p>Professeur: a faire</p>
@@ -51,15 +49,9 @@ function Classes() {
                         </li>
                     ))}
                 </ul>
+            ) : (
+                <OneClasse idClasse={selectedClasse} />
             )}
-
-
-
-
-
-
-
-
         </>
     )
 }

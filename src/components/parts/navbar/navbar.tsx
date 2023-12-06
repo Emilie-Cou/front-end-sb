@@ -27,9 +27,6 @@ function Navbar() {
                 <Link to='/comment/form'>Ajouter un commentaire</Link>
               </li>
               <li>
-                <Link to='/connect'>Connexion</Link>
-              </li>
-              <li>
                 <Link to='/homesb'>HomeSB</Link>
               </li>
             </ul>
