@@ -7,6 +7,8 @@ export const getAllClasse = () => {
     return axios.get(baseUrl)
     
         .then((response) => {
+            console.log(response);
+            
             const classes = response.data.map((clss: any) => ({
                     id: clss.idClasse,
                     nom: clss.nomClasse,
@@ -17,7 +19,7 @@ export const getAllClasse = () => {
         })
 
         .catch(function (error) {
-            console.log(error);
+            console.error(error);
             throw error
         })
 

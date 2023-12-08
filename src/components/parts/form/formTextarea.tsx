@@ -6,9 +6,12 @@ interface IComForm {
     required: boolean
     cols: number
     rows: number
+    value: string
+    onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+    onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void
 }
 
-const ComForm: FC<IComForm> = forwardRef<HTMLInputElement, IComForm>(({ className, label, required, cols, rows}) => {
+const ComForm: FC<IComForm> = forwardRef<HTMLTextAreaElement, IComForm>(({ className, label, required, cols, rows, value, onChange, onBlur }) => {
 
 
     return (
@@ -19,6 +22,9 @@ const ComForm: FC<IComForm> = forwardRef<HTMLInputElement, IComForm>(({ classNam
             <br />
             <textarea 
                 className={className}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
                 required={required}
                 cols={cols}
                 rows={rows}

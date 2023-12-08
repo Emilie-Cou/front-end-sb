@@ -41,7 +41,8 @@ function Classes() {
                         <li key={index} onClick={() => setSelectedClasse(cls.id)}>
                             <div className="afficheAllDiv">
                                 <h3>{cls.nom}</h3>
-                                <p>Professeur: a faire</p>
+                                {/* //! A clarifier */}
+                                <p>Professeur: a faire</p> 
                                 <p>{cls.desc}</p>
                                 <h2>En voici une photo</h2>
                                 <img src={cls.img} alt="Ecole du bas" width="300" />

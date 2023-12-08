@@ -43,3 +43,22 @@ export const getAllComment = () => {
 //         console.error(err)
 //     }
 // }
+
+
+export const postComment = (data: any) => {
+    
+    return axios.post(baseUrl, data)
+    
+        .then((response) => {
+            console.log("response ==== " , response)
+        })
+        
+        .catch(function (error) {
+            console.error("error === " , error);
+            throw error
+        })
+
+        .finally(function () {
+            console.log("It's okay, baby!");
+        })  
+}

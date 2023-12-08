@@ -5,9 +5,12 @@ interface IPersForm {
     className: string
     label: string
     required: boolean
+    value: string
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-const Form: FC<IPersForm> = forwardRef<HTMLInputElement, IPersForm>(({ type, className, label, required}, ref) => {
+const Form: FC<IPersForm> = forwardRef<HTMLInputElement, IPersForm>(({ type, className, label, required, value, onChange, onBlur }, ref) => {
 
 
     return (
@@ -20,6 +23,9 @@ const Form: FC<IPersForm> = forwardRef<HTMLInputElement, IPersForm>(({ type, cla
                 ref={ref} 
                 type={type}
                 className={className}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
                 required={required}
             />
         </>
