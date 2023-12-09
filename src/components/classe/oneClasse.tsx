@@ -3,6 +3,7 @@ import { getOneClasse } from "../../api/classe/APIclasse";
 
 interface ClasseProps {
     id: string,
+    prof: string,
     nom: string,
     desc: string,
     img: string,
@@ -12,6 +13,7 @@ function OneClasse({idClasse} : {idClasse : string}) {
     
     const [ classe , setClasse ] = useState<ClasseProps>({
         id: "",
+        prof: "",
         nom: "",
         desc: "",
         img: "",
@@ -35,7 +37,7 @@ function OneClasse({idClasse} : {idClasse : string}) {
             <div>
                 <h1>Classe {classe.id}</h1>
                 <h2>{classe.nom}</h2>
-                <h3>Professeur à aller chercher</h3>
+                <h3>Professeur: {classe.prof}</h3>
                 <h4>Description</h4>
                 <p>{classe.desc}</p>
                 <img src={classe.img} alt="Ecole" width={300}/>

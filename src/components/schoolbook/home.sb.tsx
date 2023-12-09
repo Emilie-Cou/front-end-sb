@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function HomeSB () {
 
-    const [ isConnected, setIsConnected ] = useState(true)
+    const [ isConnected, setIsConnected ] = useState(false)
 
     return (
         <>

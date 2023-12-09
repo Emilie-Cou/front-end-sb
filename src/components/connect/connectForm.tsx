@@ -51,11 +51,7 @@ function ConnectForm() {
                 </div>
                 <br />
             </form> 
-
-            <a href="/schoolbook/prof/P1a"><button type="button">test prof</button></a>
-            <a href="/schoolbook/student/P1a"><button type="button">test student</button></a>
-
-            <br /><br />
+            <br />
         </>
     )
 }

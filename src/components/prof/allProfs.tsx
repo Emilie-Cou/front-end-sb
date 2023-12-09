@@ -17,7 +17,7 @@ function Profs() {
     const getAll = async () => {
         try {
             const allProfs = await getAllProf()
-            console.log(allProfs);
+            //console.log(allProfs);
             
             setProfs(allProfs)
         } catch (error) {

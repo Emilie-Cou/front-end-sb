@@ -7,14 +7,16 @@ export const getAllClasse = () => {
     return axios.get(baseUrl)
     
         .then((response) => {
-            console.log(response);
+            console.log("response dans apiclasse ===== " , response);
             
             const classes = response.data.map((clss: any) => ({
                     id: clss.idClasse,
+                    prof: clss.prof.nom,
                     nom: clss.nomClasse,
                     desc: clss.miniDesc,
                     img: clss.img,
             }));
+            console.log("classes dans apiclasse ===== " , classes);
             return classes;
         })
 
@@ -35,6 +37,7 @@ export const getOneClasse = (idClasse : string) => {
         .then((response) => {
             const classe = {
                 id : response.data.idClasse,
+                prof: response.data.prof.nom,
                 nom: response.data.nomClasse,
                 desc: response.data.desc,
                 img: response.data.img,
