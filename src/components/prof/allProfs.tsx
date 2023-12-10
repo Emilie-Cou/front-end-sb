@@ -17,8 +17,6 @@ function Profs() {
     const getAll = async () => {
         try {
             const allProfs = await getAllProf()
-            //console.log(allProfs);
-            
             setProfs(allProfs)
         } catch (error) {
             console.error(error);
@@ -31,26 +29,48 @@ function Profs() {
 
     return (
         <>
-            <h1>Les professeurs</h1>
+            <h1>L'équipe éducative</h1>
 
             <ul className="afficheAll">
+                <h2>Les Professeurs:</h2>
                 {profs.map((prof, index) => (
                     <li key={index}>
-                        <div className="afficheAllDiv">
-
-                            {prof.idClasse == 'DIR' ?
+                        {prof.idClasse !== 'DIR' && prof.idClasse !== 'SEC1' && prof.idClasse !== 'SEC2' ?
+                            <div className="afficheAllDiv">
+                                <h3>Professeur</h3>
+                                <p>{prof.nom}</p>
+                                <p>{prof.id}</p>
+                                <p>{prof.nomClasse}</p>
+                                <h2>Et voici une photo</h2>
+                                <img src={prof.img} alt="Photo du prof" width="300" />
+                            </div>
+                        : null }
+                    </li>
+                ))}
+                <br />
+                <h2>La direction:</h2>
+                {profs.map((prof, index) => (
+                    <li key={index}>
+                        {prof.idClasse == 'DIR' ?
+                            <div className="afficheAllDiv">
                                 <h3>Directrice</h3>
-                                : prof.idClasse == 'SEC1' || prof.idClasse == 'SEC2' ?
-                                    <h3>Secrétaire</h3>
-                                    : <h3>Professeur</h3>
-                            }
-
-                            <p>{prof.nom}</p>
-                            <p>{prof.id}</p>
-                            <p>{prof.nomClasse}</p>
-                            <h2>Et voici une photo</h2>
-                            <img src={prof.img} alt="Photo du prof" width="300" />
-                        </div>
+                                <p>{prof.nom}</p>
+                                <p>{prof.id}</p>
+                                <p>{prof.nomClasse}</p>
+                                <h2>Et voici une photo</h2>
+                                <img src={prof.img} alt="Photo du prof" width="300" />
+                            </div>
+                        : prof.idClasse == 'SEC1' || prof.idClasse == 'SEC2' ? 
+                            <div className="afficheAllDiv">
+                                <h3>Secrétaire</h3>
+                                <p>{prof.nom}</p>
+                                <p>{prof.id}</p>
+                                <p>{prof.nomClasse}</p>
+                                <h2>Et voici une photo</h2>
+                                <img src={prof.img} alt="Photo du prof" width="300" />
+                            </div>
+                        : null
+                        }
                     </li>
                 ))}
             </ul>

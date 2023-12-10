@@ -1,48 +1,26 @@
-import { useEffect, useState } from "react";
-import { getAllComment } from "../../api/comment/APIcomment";
-
-
-interface CommentProps {
-    prenom: string,
-    content: string
-}
-     
+import { useState } from "react";
+import CommentAll from "./commentAll";
+import CommentForm from "./commentForm";
 
 function Comment() {
-    
-    const [ comments, setComments ] = useState<CommentProps[]>([])
 
-    const getAll = async () => {
-        try {
-            const allComments = await getAllComment()
-            setComments(allComments)
-        } 
-        catch (error) {
-            console.error(error)
-        }
-    } 
-
-    useEffect(() => {
-        getAll()
-    }, [])
+    const [ choice, setChoice ] = useState('')
 
     return (
         <>
             <h1>Les commentaires</h1>
 
-            {comments.length > 0 ? (
-                <div>
-                    {comments.map((cmt, index) => (
-                        <div key={index}>
-                            <h3>{cmt.prenom}</h3>
-                            <p>{cmt.content}</p>
-                        </div>
-                        ))
-                    }
-                </div>
-            ) : (
-                <p>Il n'y a pas de message...</p>
-            )}
+            <div>
+                <button onClick={() => setChoice('all')}>Voir tous les commentaires</button>
+                <button onClick={() => setChoice('form')}>Laisser un commentaire</button>
+            </div>
+            
+            <br />
+
+            {choice == 'all' ? <CommentAll /> 
+                : choice == 'form' ? <CommentForm />
+                    : null
+            }
         </>
     )
 }

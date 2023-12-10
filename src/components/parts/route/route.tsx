@@ -4,7 +4,6 @@ import Classes from "../../classe/allClasses";
 import Profs from "../../prof/allProfs";
 import APropos from "../../apropos/aPropos";
 import Comment from "../../comment/comment";
-import CommentForm from "../../comment/commentForm";
 import HomeSB from "../../schoolbook/home.sb";
 import BookProfSB from "../../schoolbook/prof.sb/book.prof.sb";
 import ClasseProfSB from "../../schoolbook/prof.sb/classe.prof.sb";
@@ -23,7 +22,6 @@ function Router() {
             <Route path="profs" element={<Profs />} />
             <Route path="apropos" element={<APropos />} />
             <Route path="comment" element={<Comment />} />
-            <Route path="comment/form" element={<CommentForm />} />
             <Route path="homesb" element={<HomeSB />} >
                 <Route path="homestudent" element={<HomeStudentSB />} />
                 <Route path="messagestudent" element={<MessageStudentSB />} />
