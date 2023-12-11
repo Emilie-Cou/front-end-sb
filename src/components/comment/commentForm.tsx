@@ -2,18 +2,19 @@ import { Controller, useForm } from "react-hook-form";
 import Form from "../parts/form/form";
 import ComForm from "../parts/form/formTextarea";
 import { postComment } from "../../api/comment/APIcomment";
-import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../store/hook";
+import { setComment } from "../../store/slices/comment.slice";
 
 function CommentForm() {
 
     const { handleSubmit, control } = useForm()
-    const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     const onSubmit = async (data: any) => {
-        console.log("data ====== " , data)
         try {
             await postComment(data)
-            navigate('/comment')
+            data = { choice : "all" }
+            dispatch(setComment(data))
         } catch (error) {
             console.error(error)
         }

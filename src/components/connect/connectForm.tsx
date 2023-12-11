@@ -7,6 +7,7 @@ function ConnectForm() {
 
     const onSubmit = (data: any) => {
         console.log(data)
+        
     }    
 
     return (

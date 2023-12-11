@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllComment } from "../../api/comment/APIcomment";
+import './comment.scss'
 
 
 interface CommentProps {
@@ -7,7 +8,6 @@ interface CommentProps {
     content: string
 }
      
-
 function CommentAll() {
     
     const [ comments, setComments ] = useState<CommentProps[]>([])
@@ -31,9 +31,9 @@ function CommentAll() {
             <h1>Les commentaires</h1>
 
             {comments.length > 0 ? (
-                <div>
+                <div className="allComment">
                     {comments.map((cmt, index) => (
-                        <div key={index}>
+                        <div key={index} className="afficheComment">
                             <h3>{cmt.prenom}</h3>
                             <p>{cmt.content}</p>
                         </div>
