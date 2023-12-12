@@ -1,13 +1,21 @@
 import { Controller, useForm } from "react-hook-form";
 import Form from "../../../parts/form/form";
 import ComForm from "../../../parts/form/formTextarea";
+import { useAppSelector } from "../../../../store/hook";
+import { postMsg } from "../../../../api/schoolbook/APIprof.sb/msgAPIprof.sb";
 
 function MsgFormProfSB () {
 
     const { handleSubmit, control } = useForm()
+    const id = useAppSelector(state => state.connect.idClasse)
 
-    const onSubmit = (data : any) => {
-        console.log(data);
+    const onSubmit = async (data : any) => {
+        try {
+            data.classe = id
+            await postMsg(data)
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (

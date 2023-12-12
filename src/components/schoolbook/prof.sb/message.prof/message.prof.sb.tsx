@@ -4,19 +4,28 @@ import MsgAllProfSB from "./msgAll.prof.sb";
 
 function MessageProfSB () {
 
-    const [ writeMessage, setWriteMessage ] = useState(true)
-
-    const handleAction = function () {
-        setWriteMessage(!writeMessage)
-    }
+    const [ writeMessage, setWriteMessage ] = useState<boolean>()
 
     return (
         <>
             <h1>MessageProfSB</h1>
-            <button onClick={handleAction}>
-                {writeMessage ? "Mes messages" : "Envoyer un message?"}
+            <h2>Ici, tu peux consulter tes messages ou en envoyer.</h2>
+
+            <button onClick={() => setWriteMessage(true)}>
+                Envoyer un message?
             </button>
-            {writeMessage ? <MsgFormProfSB /> : <MsgAllProfSB />}
+            <button onClick={() => setWriteMessage(false)}>
+                Mes messages
+            </button>
+
+            <br /> <br />
+
+            { writeMessage == true ? 
+                <MsgFormProfSB />
+                : writeMessage == false ?
+                    <MsgAllProfSB />
+                    : null
+            }
         </>
     )
 }

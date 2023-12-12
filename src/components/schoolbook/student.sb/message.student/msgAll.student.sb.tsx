@@ -40,7 +40,6 @@ function MsgAllStudentSB () {
             ) : (
                 <p>Il n'y a pas de message...</p>
             )}
-
         </>
     )
 }

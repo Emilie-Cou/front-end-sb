@@ -1,26 +1,47 @@
+import { useEffect, useState } from "react";
+import { getAllMsgByIdClasse } from "../../../../api/schoolbook/APIprof.sb/msgAPIprof.sb";
+
+interface MessageProps {
+    prenom : string,
+    content : string
+}
+
 function MsgAllProfSB () {
 
+    const [ messages, setMessages ] = useState<MessageProps[]>([])
+
+    const getAllByIdClasse = async (idClasse : {idClasse : string}) => {
+        try {
+            const allMsg = await getAllMsgByIdClasse(idClasse)
+            setMessages(allMsg)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        getAllByIdClasse({idClasse : "P1A"})
+    }, [])
 
     return (
         <>
             <h1>Mes messages</h1>
-            <h2>TOUS</h2>
-            <p>PAS PREVU INITIALEMENT...</p>
 
-
+            {messages.length > 0 ? (
+                <div className="allComment">
+                    {messages.map((msg, index) => (
+                        <div key={index} className="afficheComment">
+                            <h3>{msg.prenom}</h3>
+                            <p>{msg.content}</p>
+                        </div>
+                        ))
+                    }
+                </div>
+            ) : (
+                <p>Il n'y a pas de message...</p>
+            )}
         </>
     )
 }
 
 export default MsgAllProfSB
-
-
-{/* <h2>Recevoir messages</h2>
-<% msgProf.forEach( msg => { %>
-    <div class="afficheComment">
-        <h4>Message de:</h4>
-        <p><%= msg.Prenom %></p>
-        <h4>Contenu:</h4>
-        <p><%= msg.Content %></p>
-    </div>
-<% }) %> */}
