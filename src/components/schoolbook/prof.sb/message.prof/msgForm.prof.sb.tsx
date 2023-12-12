@@ -1,18 +1,22 @@
 import { Controller, useForm } from "react-hook-form";
 import Form from "../../../parts/form/form";
 import ComForm from "../../../parts/form/formTextarea";
-import { useAppSelector } from "../../../../store/hook";
+import { useAppDispatch, useAppSelector } from "../../../../store/hook";
 import { postMsg } from "../../../../api/schoolbook/APIprof.sb/msgAPIprof.sb";
+import { setComment } from "../../../../store/slices/comment.slice";
 
 function MsgFormProfSB () {
 
     const { handleSubmit, control } = useForm()
     const id = useAppSelector(state => state.connect.idClasse)
+    const dispatch = useAppDispatch()
 
     const onSubmit = async (data : any) => {
         try {
             data.classe = id
             await postMsg(data)
+            data = { choice : "all"}
+            dispatch(setComment(data))
         } catch (error) {
             console.error(error)
         }

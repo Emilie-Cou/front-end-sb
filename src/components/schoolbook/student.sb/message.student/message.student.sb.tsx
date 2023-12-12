@@ -1,28 +1,41 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import MsgFormStudentSB from "./msgForm.student.sb";
 import MsgAllStudentSB from "./msgAll.student.sb";
+import { useAppDispatch, useAppSelector } from "../../../../store/hook";
+import { setComment } from "../../../../store/slices/comment.slice";
 
 function MessageStudentSB () {
 
-    const [ writeMessage, setWriteMessage ] = useState<boolean>()
+    const dispatch = useAppDispatch()
+    const choice = useAppSelector(state => state.comment.choice)
+
+    const onClick = (value : any) => {
+        const data = {choice : value}
+        dispatch(setComment(data))
+    }
+
+    useEffect(() => {
+        const data = {choice : ""}
+        dispatch(setComment(data))
+    }, [])
 
     return (
         <>
             <h1>MessageStudentSB</h1>
             <h2>Ici, tu peux consulter tes messages ou en envoyer.</h2>
 
-            <button onClick={() => setWriteMessage(true)}>
+            <button onClick={() => onClick("form")}>
                 Envoyer un message?
             </button>
-            <button onClick={() => setWriteMessage(false)}>
+            <button onClick={() => onClick("all")}>
                 Mes messages
             </button>
 
             <br /> <br />
 
-            { writeMessage == true ? 
+            { choice == "form"  ? 
                 <MsgFormStudentSB />
-                : writeMessage == false ?
+                : choice == "all" ?
                     <MsgAllStudentSB />
                     : null
             }
