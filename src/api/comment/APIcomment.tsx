@@ -8,8 +8,8 @@ export const getAllComment = () => {
     
         .then((response) => {
             const comments = response.data.map((cmt: any) => ({
-                    prenom: cmt.prenom,
-                    content: cmt.content,
+                prenom: cmt.prenom,
+                content: cmt.content,
             }));
             return comments;
         })

@@ -6,7 +6,6 @@ function Navbar() {
     return (
       <>
         <nav>
-            <h3>Ceci est la navbar</h3>
             <ul>
               <li>
                 <Link to=''>Home</Link>

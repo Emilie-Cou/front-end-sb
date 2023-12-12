@@ -4,19 +4,28 @@ import MsgAllStudentSB from "./msgAll.student.sb";
 
 function MessageStudentSB () {
 
-    const [ writeMessage, setWriteMessage ] = useState(true)
-
-    const handleAction = function () {
-        setWriteMessage(!writeMessage)
-    }
+    const [ writeMessage, setWriteMessage ] = useState<boolean>()
 
     return (
         <>
             <h1>MessageStudentSB</h1>
-            <button onClick={handleAction}>
-                {writeMessage ? "Mes messages" : "Envoyer un message?"}
+            <h2>Ici, tu peux consulter tes messages ou en envoyer.</h2>
+
+            <button onClick={() => setWriteMessage(true)}>
+                Envoyer un message?
             </button>
-            {writeMessage ? <MsgFormStudentSB /> : <MsgAllStudentSB />}
+            <button onClick={() => setWriteMessage(false)}>
+                Mes messages
+            </button>
+
+            <br /> <br />
+
+            { writeMessage == true ? 
+                <MsgFormStudentSB />
+                : writeMessage == false ?
+                    <MsgAllStudentSB />
+                    : null
+            }
         </>
     )
 }

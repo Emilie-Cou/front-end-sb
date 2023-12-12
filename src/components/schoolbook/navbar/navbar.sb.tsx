@@ -6,7 +6,6 @@ function NavbarSB() {
     return (
         <>
             <nav className="navsb">
-                <h3>Ceci est la navbar du SchoolBook</h3>
                 <ul>
                     <li>
                         <Link to='/homesb'>Home</Link>

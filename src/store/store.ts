@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import commentReducer from "./slices/comment.slice"
+import connectReducer from "./slices/connect.slice"
 
 export const store = configureStore({
     reducer: {
-        comment : commentReducer
+        comment : commentReducer,
+        connect : connectReducer
     }
 })
 
